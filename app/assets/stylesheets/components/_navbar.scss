@@ -1,0 +1,19 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: rgb(79, 86, 149);
+  height: 60px;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+
+}
+.navbar-lewagon .avatar {
+  width: 40px; /* Ajustez la taille en fonction de vos besoins */
+  height: 40px; /* Ajustez la taille en fonction de vos besoins */
+  border-radius: 50%; /* Pour obtenir une forme circulaire (optionnel) */
+}
