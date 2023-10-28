@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Main container -->
+<div class="container py-4">
+  <h4 class="rounded-background">Derniers articles en ligne</h4>
+      <div class="mt-3 cards-hp mx-auto">
+        <% @posts.each do |post| %>
+          <div class="card-trip">
+            <% if post.image.attached? %>
+              <% if post.image.variable? %>
+                <%= image_tag post.image %>
+            <% else %>
+              <video controls>
+                <source src="<%= url_for(post.image) %>" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            <% end %>
+          <% end %>
+            <div class="card-trip-infos">
+              <div>
+                 <strong><%= link_to post[:title], post_path(post[:id]) %></strong>
+              </div>
+              <p class="card-trip-pricing"><%= post[:category] %></p>
+              <img src="<%= post.user.avatar %>" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
+        <% end %>
+      </div>
+</div>

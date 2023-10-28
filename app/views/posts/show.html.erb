@@ -1,0 +1,16 @@
+<div class="container-post mt-3 mb-3">
+  <h2><%= @post.title %></h2>
+  <p class="post-category"><%= @post.category %></p>
+  <p class="post-date"><%= @post.created_at.strftime("%d %B %Y") %></p>
+   <% if @post.image.attached? %>
+    <% if @post.image.variable? %>
+      <%= image_tag @post.image, class: "post-image" %>
+    <% else %>
+      <video controls width="400" height="300" class="post-video">
+        <source src="<%= url_for(@post.image) %>" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+    <% end %>
+  <% end %>
+  <p class="post-content"><%= @post.content %></p>
+</div>

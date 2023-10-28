@@ -9,6 +9,7 @@ gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem "image_processing", ">= 1.2"
 gem "bootstrap"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -50,6 +51,7 @@ gem "devise"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry'
 end
 
 group :development do

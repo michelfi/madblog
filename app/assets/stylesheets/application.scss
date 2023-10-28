@@ -1,11 +1,13 @@
 @import "bootstrap";
-@import 'bootstrap/dist/css/bootstrap.css';
 
 // Your CSS partials
 @import "components/_navbar";
 @import "components/_footer";
 @import "components/_connexion";
 @import "components/_search-form";
+@import "components/_avatar";
+@import "components/_card";
+@import "components/_show-post";
 
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300&display=swap');

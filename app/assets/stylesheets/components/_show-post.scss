@@ -1,0 +1,47 @@
+.container-post {
+  max-width: 800px; /* Limite la largeur du contenu pour une meilleure lisibilité */
+  margin: 0 auto;
+  padding: 20px;
+  // border-radius: 2%;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+  font-size: 28px; /* Augmente la taille du titre */
+  margin: 0;
+  padding: 10px 0;
+  font-weight: bold; /* Ajoute du style en gras */
+  text-transform: uppercase; /* Met le texte en majuscules */
+  color: #333; /* Couleur du texte */
+  text-align: center; /* Centre le texte horizontalement */
+  border-bottom: 2px solid #333; /* Ajoute une bordure inférieure */
+  line-height: 1.2; /* Espacement des lignes pour une meilleure lisibilité */
+  
+}
+
+.post-category {
+  font-size: 16px; /* Taille de la catégorie de l'article */
+  margin: 0;
+  color: #666; /* Couleur du texte de la catégorie */
+  text-align : right;
+}
+
+.post-image, .post-video {
+  max-width: 100%; /* Évite que l'image ne dépasse de la boîte */
+  height: auto; /* Maintient le rapport hauteur/largeur de l'image */
+  display: block; /* Supprime la marge inférieure ajoutée par image_tag */
+  margin: 20px auto; /* Centre l'image ou la vidéo horizontalement en utilisant la marge */
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.post-content {
+  font-size: 18px; /* Taille du contenu de l'article */
+  line-height: 1.6; /* Espacement des lignes pour une meilleure lisibilité */
+  margin: 20px 0;
+}
+
+.post-date {
+  font-size: 14px; /* Taille de la date de l'article */
+  margin: 0;
+  color: #999; /* Couleur du texte de la date */
+}
