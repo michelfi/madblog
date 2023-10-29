@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    @subscriber = Subscriber.new
     @user = current_user
     authorize @user
     @posts = Post.where(user_id: current_user.id)

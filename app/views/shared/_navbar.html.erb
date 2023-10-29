@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
 
@@ -25,19 +25,21 @@
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <% if current_user.user_type.in?(['admin', 'poster']) %>
+         <% if current_user.user_type.in?(['admin', 'poster']) %>
             <!-- Bouton spécifique pour les administrateurs et posteurs -->
             <li class="nav-item">
               <%= link_to "Créer un article", new_post_path, class: "nav-link" %>
             </li>
           <% end %>
+          <% if current_user.user_type.in?(['admin']) %>
+            <!-- Bouton spécifique pour les administrateurs et posteurs -->
+            <li class="nav-item">
+              <%= link_to "Liste", subscribers_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
             <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>
               <%= link_to "Déconnexion", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>

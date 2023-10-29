@@ -1,4 +1,19 @@
 <!-- Main container -->
+<% if cookies[:saved_subscriber] %>
+  <div class="success-message">
+    <p>Vous êtes inscrit !</p>
+  </div>
+<% else %>
+  <div class="newsletter-form">
+    <%= form_for @subscriber do |f| %>
+      <%= f.text_field :name, placeholder: "Nom", class: "input-field" %>
+      <%= f.text_field :surname, placeholder: "Prénom", class: "input-field" %>
+      <%= f.email_field :email, placeholder: "E-mail", class: "input-field" %>
+      <%= f.submit "S'inscrire à la Newsletter", class: "submit-button" %>
+    <% end %>
+  </div>
+<% end %>
+
 <div class="container py-4">
   <h4 class="rounded-background">Derniers articles en ligne</h4>
       <div class="mt-3 cards-hp mx-auto">

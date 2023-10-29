@@ -6,10 +6,12 @@
     <% if @post.image.variable? %>
       <%= image_tag @post.image, class: "post-image" %>
     <% else %>
-      <video controls width="400" height="300" class="post-video">
-        <source src="<%= url_for(@post.image) %>" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
+      <div class="video-container">
+        <video controls class="post-video">
+          <source src="<%= url_for(@post.image) %>" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     <% end %>
   <% end %>
   <p class="post-content"><%= @post.content %></p>

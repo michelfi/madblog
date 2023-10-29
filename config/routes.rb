@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'subscribers/index'
   get 'profiles/show'
   get 'pages/home'
   devise_for :users
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :posts
   get 'profile', to: 'profiles#show'
+  resources :subscribers
 
   delete 'posts/:id', to: 'posts#destroy', as: 'post_destroy'
 end

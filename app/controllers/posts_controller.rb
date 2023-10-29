@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
     if @post.update(post_params)
       # Utilisez Turbo Streams pour mettre à jour la fenêtre Turbo Frame dans la vue d'édition
-      redirect_to @post
+      redirect_to @post, notice: "Le post a été mis à jour avec succès."
     else
       # Redirige vers l'action d'édition en cas d'erreur
       render :edit

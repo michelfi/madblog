@@ -2,7 +2,6 @@ class User < ApplicationRecord
   before_create :set_default_user_type
   # Associations
   has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
   has_one_attached :avatar
 
   # Validations
