@@ -9,11 +9,11 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
-    false
+    true # Tout le monde peut lire un post
   end
 
   def create?

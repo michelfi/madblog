@@ -1,0 +1,30 @@
+    <h2>Modifier l'article</h2>
+<div class="container pt-5">
+  <%= simple_form_for @post, data: { turbo: false }, html: { class: "form" } do |form| %>
+    <div class="form-inputs">
+      <%= form.input :title, label: "Modifier le titre", input_html: { class: "form-control" } %>
+      <%= form.input :category, label: "Modifier la catégorie", input_html: { class: "form-control" } %>
+      <%= form.input :content, label: "Modifier le contenu", as: :text, input_html: { class: "form-control", rows: 6 } %>
+      <br>
+      <h3>Image attachée à l'article</h3>
+        <% if @post.image.attached? %>
+          <% if @post.image.variable? %>
+            <%= image_tag @post.image, class: "post-edit" %>
+          <% else %>
+            <video controls width="200" height="150" class="post-video">
+              <source src="<%= url_for(@post.image) %>" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+           <% end %>
+         <% end %>
+        <%= form.file_field :image, label: "URL de l'image", input_html: { class: "form-control" } %>
+    </div>
+    <br />
+    <div class="form-actions">
+      <div class="d-flex justify-content-between">
+        <%= form.button :submit, "Modifier l'article", class: "btn btn-primary" %>
+      </div>
+    </div>
+    <br />
+  <% end %>
+</div>

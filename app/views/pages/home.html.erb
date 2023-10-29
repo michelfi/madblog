@@ -19,7 +19,7 @@
                  <strong><%= link_to post[:title], post_path(post[:id]) %></strong>
               </div>
               <p class="card-trip-pricing"><%= post[:category] %></p>
-              <img src="<%= post.user.avatar %>" class="card-trip-user avatar-bordered" />
+              <img src="<%= url_for(post.user.avatar) %>" class="card-trip-user avatar-bordered" />
             </div>
           </div>
         <% end %>

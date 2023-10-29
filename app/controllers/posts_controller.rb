@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   include Pundit
-  require 'pry'
 
   def index
      @posts = Post.all
@@ -8,9 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    authorize @post
-    @comment = Comment.new
-    @comments = @post.comments.all
+    skip_authorization
   end
 
   def new
@@ -41,20 +38,27 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     authorize @post
-    @post.update(post_params)
-    redirect_to @post
+
+    if @post.update(post_params)
+      # Utilisez Turbo Streams pour mettre à jour la fenêtre Turbo Frame dans la vue d'édition
+      redirect_to @post
+    else
+      # Redirige vers l'action d'édition en cas d'erreur
+      render :edit
+    end
   end
+
 
   def destroy
     @post = Post.find(params[:id])
-    authorize @post
     @post.destroy
-    redirect_to posts_path
+    authorize @post
+    redirect_to profile_path, notice: "L'article a été supprimé avec succès."
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :category, :content)
+    params.require(:post).permit(:title, :category, :content, :image) # Ajoutez d'autres attributs autorisés si nécessaire
   end
 end

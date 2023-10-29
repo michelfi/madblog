@@ -12,7 +12,13 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || user.poster? # Seuls les admins et les posteurs peuvent supprimer un post
+    if user.admin?
+      true
+    elsif user.poster? && user == record.user
+      true
+    else
+      puts "L'utilisateur #{user.email} n'a pas l'autorisation de supprimer ce post."
+      false
+    end
   end
 end
-

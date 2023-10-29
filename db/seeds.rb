@@ -3,17 +3,19 @@ puts "Destroying all users"
 User.destroy_all
 puts "Destroying all posts"
 Post.destroy_all
-puts "Destroying all comments"
-Comment.destroy_all
-
 
 puts "Creating a user"
-user1 = User.create!(email: "michel.figueres@gmail.com", password: "azerty", avatar: "https://i.ibb.co/qk9cp8w/te-le-chargement-4.jpg", user_type: "admin")
-puts "User1 (admin) created !"
-user2 = User.create!(email: "janine@gmail.com", password: "azerty", avatar: "https://i.ibb.co/hcC2SHK/te-le-chargement.jpg", user_type: "poster")
-puts "User2 (poster) created !"
-user3 = User.create!(email: "louisette@gmail.com", password: "azerty", avatar: "https://i.ibb.co/nzMsTTv/te-le-chargement-3.jpg", user_type: "user")
-puts "User3 (user) created !"
+user1 = User.create!(email: "michel.figueres@gmail.com", password: "azerty", user_type: "admin")
+user1.avatar.attach(io: File.open("storage/te-le-chargement-4.jpeg"), filename: "avatar1.jpg")
+puts "User1 (admin) created!"
+
+user2 = User.create!(email: "janine@gmail.com", password: "azerty", user_type: "poster")
+user2.avatar.attach(io: File.open("storage/te-le-chargement.jpeg"), filename: "avatar2.jpg")
+puts "User2 (poster) created!"
+
+user3 = User.create!(email: "louisette@gmail.com", password: "azerty", user_type: "user")
+user3.avatar.attach(io: File.open("storage/te-le-chargement-3.jpeg"), filename: "avatar3.jpg")
+puts "User3 (user) created!"
 
 
 puts "Creating a post"
@@ -29,9 +31,5 @@ puts "Post2 created!"
 post3 = Post.create!(title: "Le titre du post", category: "La catégorie du post", content: "Le contenu du post", user_id: user3.id)
 post3.image.attach(io: File.open("storage/tree-736885_1280.jpeg"), filename: "nom_de_l_image3.jpg")
 puts "Post3 created !"
-
-
-puts "Creating a comment"
-comment1 = Comment.create!(content: "Super commentaire !", rating: "1", post_id: post1.id, user_id: user1.id)
 
 puts "Finish!"

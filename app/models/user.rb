@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # Associations
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_one_attached :avatar
 
   # Validations
   validates :email, presence: true, uniqueness: true

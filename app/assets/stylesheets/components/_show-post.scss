@@ -16,7 +16,7 @@ h2 {
   text-align: center; /* Centre le texte horizontalement */
   border-bottom: 2px solid #333; /* Ajoute une bordure inférieure */
   line-height: 1.2; /* Espacement des lignes pour une meilleure lisibilité */
-  
+
 }
 
 .post-category {
@@ -27,7 +27,7 @@ h2 {
 }
 
 .post-image, .post-video {
-  max-width: 100%; /* Évite que l'image ne dépasse de la boîte */
+  max-width: 90%; /* Évite que l'image ne dépasse de la boîte */
   height: auto; /* Maintient le rapport hauteur/largeur de l'image */
   display: block; /* Supprime la marge inférieure ajoutée par image_tag */
   margin: 20px auto; /* Centre l'image ou la vidéo horizontalement en utilisant la marge */
@@ -44,4 +44,9 @@ h2 {
   font-size: 14px; /* Taille de la date de l'article */
   margin: 0;
   color: #999; /* Couleur du texte de la date */
+}
+
+.post-edit {
+  height: 200px;
+  object-fit: cover;
 }
