@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  include Pundit
+  include Pundit::Authorization
 
   def index
      @posts = Post.all
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     authorize @post
 
     if @post.save
-      @post.image.attach(params[:post][:images])
+      @post.image.attach(params[:post][:image])
       @post.video.attach(params[:post][:video])
       redirect_to root_path, notice: "Le post a été créé avec succès."
     else
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
     if @post.update(post_params)
       # Utilisez Turbo Streams pour mettre à jour la fenêtre Turbo Frame dans la vue d'édition
-      redirect_to @post, notice: "Le post a été mis à jour avec succès."
+      redirect_to root_path, notice: "Le post a été mis à jour avec succès."
     else
       # Redirige vers l'action d'édition en cas d'erreur
       render :edit
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     authorize @post
-    redirect_to profile_path, notice: "L'article a été supprimé avec succès."
+    redirect_to root_path, notice: "L'article a été supprimé avec succès."
   end
 
   private

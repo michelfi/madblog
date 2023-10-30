@@ -4,7 +4,9 @@
     <div class="form-inputs">
       <%= form.input :title, label: "Modifier le titre", input_html: { class: "form-control" } %>
       <%= form.input :category, label: "Modifier la catégorie", input_html: { class: "form-control" } %>
-      <%= form.input :content, label: "Modifier le contenu", as: :text, input_html: { class: "form-control", rows: 6 } %>
+      <label for="post_content">Modifier le contenu</label>
+      <%= form.text_area :content, id: "post_content" %>
+
       <br>
       <h3>Image attachée à l'article</h3>
         <% if @post.image.attached? %>
@@ -28,3 +30,6 @@
     <br />
   <% end %>
 </div>
+
+
+<%= javascript_pack_tag 'image_preview' %>

@@ -6,6 +6,7 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(subscriber_params)
     if @subscriber.save
+      NewsletterMailer.welcome_subscriber(@subscriber).deliver_now
       cookies[:saved_lead] = true
       redirect_to root_path, notice: "Votre inscription a été prise en compte."
     else
@@ -17,6 +18,6 @@ class SubscribersController < ApplicationController
   private
 
   def subscriber_params
-    params.require(:subscriber).permit(:surname, :name, :email)
+    params.require(:subscriber).permit(:surname, :name, :email, :category)
   end
 end

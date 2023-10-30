@@ -14,11 +14,15 @@
       </div>
     <% end %>
   <% end %>
-  <p class="post-content"><%= @post.content %></p>
+  <div class="form-group">
+    <div class="content">
+      <%= @post.content.html_safe %>
+    </div>
+  </div>
   <% if user_signed_in? && current_user == @post.user %>
     <div class="d-flex justify-content-between">
       <%= link_to "Editer l'article", edit_post_path(@post), class: "btn btn-primary" %>
-      <%= link_to "Supprimer l'article", post_destroy_path(@post), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer l'offre?" }, class: "btn btn-danger" %>
+      <%= button_to "Supprimer", {:controller => :posts, :action => 'destroy', :id => @post.id }, :method => :delete, class: "btn btn-danger" %>
     </div>
   <% end %>
 </div>

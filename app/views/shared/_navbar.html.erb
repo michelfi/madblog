@@ -38,9 +38,11 @@
             </li>
           <% end %>
           <li class="nav-item dropdown">
-            <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+             <a class="nav-link" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="nav-item">Mon Compte</div>
+             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>
+              <%= link_to "Mon profil", profile_path(current_user), class: "dropdown-item" %>
               <%= link_to "Déconnexion", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

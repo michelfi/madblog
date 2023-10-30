@@ -72,3 +72,5 @@ gem 'sassc-rails', '>= 2.1.2'
 
 gem 'webpacker', '~> 5.x'
 gem 'simple_form'
+
+gem 'omniauth-google-oauth2', '~> 0.8.2'

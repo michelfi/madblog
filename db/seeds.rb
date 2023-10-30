@@ -3,6 +3,8 @@ puts "Destroying all users"
 User.destroy_all
 puts "Destroying all posts"
 Post.destroy_all
+puts "Destroying all subscribers"
+Subscriber.destroy_all
 
 puts "Creating a user"
 user1 = User.create!(email: "michel.figueres@gmail.com", password: "azerty", user_type: "admin")

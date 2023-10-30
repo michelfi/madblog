@@ -1,15 +1,21 @@
-<div class="container pt-5">
-  <%= simple_form_for @post, data: { turbo: false }, html: { class: "form" } do |form| %>
-    <div class="form-inputs">
-      <%= form.input :title, label: "Titre de l'article", input_html: { class: "form-control" } %>
-      <%= form.input :category, label: "Catégorie de l'article", input_html: { class: "form-control" } %>
-      <%= form.input :content, label: "Contenu de l'article", as: :text, input_html: { class: "form-control", rows: 6 } %>
-      <br>
-      <%= form.file_field :images, label: "URL de l'image", input_html: { class: "form-control" } %>
-    </div>
+<div class="container pt-5 mb-5">
+  <%= simple_form_for @post, data: { turbo: false }, html: { class: "form", id: "post-form" } do |form| %>
+<div class="form-inputs">
+  <%= form.input :title, label: "Titre de l'article", input_html: { class: "form-control" } %>
+  <%= form.input :category, label: "Catégorie de l'article", input_html: { class: "form-control" } %>
+<div class="form-group">
+  <label for="post_content">Contenu de l'article</label>
+  <textarea id="post_content" name="post[content]" style="width: 100%; min-height: 500px;"></textarea>
+</div>
+  <br>
+  <%= form.file_field :image, label: "URL de l'image", input_html: { class: "form-control", id: "image-input" } %>
+</div>
+
     <br>
     <div class="form-actions">
       <%= form.button :submit, "Créer l'article", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
+<%= javascript_pack_tag 'image_preview' %>
+<%= javascript_pack_tag 'trix_attachment_upload' %>

@@ -9,6 +9,7 @@
       <%= f.text_field :name, placeholder: "Nom", class: "input-field" %>
       <%= f.text_field :surname, placeholder: "Prénom", class: "input-field" %>
       <%= f.email_field :email, placeholder: "E-mail", class: "input-field" %>
+      <%= f.select :category, options_for_select(["Catégorie 1", "Catégorie 2", "Catégorie 3"]), {}, class: "input-field" %>
       <%= f.submit "S'inscrire à la Newsletter", class: "submit-button" %>
     <% end %>
   </div>
@@ -34,7 +35,6 @@
                  <strong><%= link_to post[:title], post_path(post[:id]) %></strong>
               </div>
               <p class="card-trip-pricing"><%= post[:category] %></p>
-              <img src="<%= url_for(post.user.avatar) %>" class="card-trip-user avatar-bordered" />
             </div>
           </div>
         <% end %>

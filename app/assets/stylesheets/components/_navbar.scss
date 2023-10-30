@@ -17,3 +17,80 @@
   height: 40px; /* Ajustez la taille en fonction de vos besoins */
   border-radius: 50%; /* Pour obtenir une forme circulaire (optionnel) */
 }
+
+/* Pour les liens */
+.nav-link {
+  color: #fff; /* Couleur de base du texte */
+  transition: background-color 0.3s; /* Animation lors du survol */
+  text-decoration: none; /* Enlever le soulignement par défaut des liens */
+}
+
+/* Au survol */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Couleur de fond au survol (transparente) */
+  color: #ff9900; /* Couleur du texte au survol */
+}
+
+/* En cliquant (état actif) */
+.nav-link:active {
+  background-color: rgba(255, 255, 255, 0.3); /* Couleur de fond lorsque le lien est actif (transparente) */
+  color: #ff9900; /* Couleur du texte lorsque le lien est actif */
+}
+
+/* Pour les boutons */
+.btn {
+  transition: background-color 0.3s; /* Animation lors du survol */
+}
+
+/* Au survol */
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Couleur de fond au survol (transparente) */
+  color: #ff9900; /* Couleur du texte au survol */
+}
+
+/* En cliquant (état actif) */
+.btn:active {
+  background-color: rgba(255, 255, 255, 0.3); /* Couleur de fond lorsque le bouton est actif (transparente) */
+  color: #ff9900; /* Couleur du texte lorsque le bouton est actif */
+}
+
+
+/* Pour le lien du dropdown */
+.nav-item.dropdown {
+  position: relative;
+}
+
+/* Styles de base pour le menu déroulant (invisible) */
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  background-color: #333; /* Couleur de fond du menu déroulant */
+  color: #fff; /* Couleur du texte du menu déroulant */
+  border: none; /* Supprimer la bordure */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
+}
+
+/* Afficher le menu lorsque le lien est survolé */
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Style des liens dans le menu déroulant */
+.dropdown-item {
+  color: #fff; /* Couleur du texte des éléments du menu */
+  transition: background-color 0.3s;
+}
+
+/* Au survol des éléments du menu */
+.dropdown-item:hover {
+  background-color: #555; /* Couleur de fond au survol */
+}
+
+/* En cliquant sur les éléments du menu (état actif) */
+.dropdown-item:active {
+  background-color: #444; /* Couleur de fond lorsque l'élément est actif */
+}
