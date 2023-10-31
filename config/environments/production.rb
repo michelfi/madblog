@@ -2,7 +2,10 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # Configure Apache
+  config.force_ssl = true
+  config.action_dispatch.default_headers['Strict-Transport-Security'] =
+  'max-age=31536000; includeSubDomains'
   # Code is not reloaded between requests.
   config.cache_classes = true
 
