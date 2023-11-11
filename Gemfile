@@ -74,3 +74,4 @@ gem 'webpacker', '~> 5.x'
 gem 'simple_form'
 
 gem 'omniauth-google-oauth2', '~> 0.8.2'
+
